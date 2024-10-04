@@ -2,15 +2,19 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req,res) =>{
-    res.send("welcome to home")
+    res.send("Home");
 })
 
-app.get("/server", (req,res) =>{
-    res.send("Hello from the Server 4000")
+app.get("/user", (req,res) =>{
+    res.send({firstName: "Ritik", lastName: "Yadav"});
 })
 
-app.get("/request", (req,res) =>{
-    res.send("Whats your Request ?")
+app.post("/user", async(req,res) =>{
+    res.send("Data Successfully saved to database!");
+})
+
+app.delete("/user",(req,res)=>{
+    res.send("Delete Successfully")
 })
 
 app.listen(4000,() => {
